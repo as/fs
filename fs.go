@@ -3,8 +3,8 @@ package fs
 import (
 	"bytes"
 	"compress/zlib"
-	"golang.org/x/crypto/sha3"
 	"fmt"
+	"golang.org/x/crypto/sha3"
 	"hash"
 	"io"
 	"os"
@@ -15,6 +15,7 @@ var (
 	NameFunc = keyPath
 	HashFunc = sha3.New256
 )
+
 func keyPath(k Key) string {
 	if len(k) < 2 {
 		return ""
@@ -30,7 +31,7 @@ type Fs struct {
 	// HashFunc returns a new hash.Hash algorithm used to address
 	// the underlying file contents
 	HashFunc func() hash.Hash
-	dir string
+	dir      string
 }
 
 // New creates a filesystem in path with a SHA1
